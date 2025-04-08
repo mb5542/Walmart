@@ -118,16 +118,58 @@ print('\n')
 # Check column types after changes
 print(walmart.info())
 
-
-
 print('\n')
 print(walmart.head())
 print('\n')
 
 
+'''
+Sales KPI analysis:
+1. Total sales
+2. Average shopping basket
+3. Average number of transactions per customer
+4. Most popular products and categories
+'''
+print('Sales KPIs:')
+print('\n')
+# 1
+# Total sales
+total_sales = walmart['Purchase_Amount'].sum()
 
+print(f'Total sales: {total_sales:.2f} USD')
 
+# 2
+# Average shopping basket
+avg_basket = walmart['Purchase_Amount'].mean()
 
+print(f'Average shopping basket: {avg_basket:.2f} USD')
+
+# 3
+# Average number of transactions per customer
+
+# Number of transactions per customer
+trans_per_customer = walmart.groupby(walmart.index).size()
+
+# Average number of transactions per customer
+avg_transactions = trans_per_customer.mean()
+
+print(f"Average number of transactions per customer: {avg_transactions:.2f}")
+print('\n')
+
+# 4
+# Most popular products and categories
+
+#Product popularity
+product_popularity = walmart['Product_Name'].value_counts().sort_values(ascending=False)
+
+print("Most popular products:\n", product_popularity)
+print('\n')
+
+# Category popularity
+category_popularity = walmart['Category'].value_counts().sort_values(ascending=False)
+
+print("Most popular categories:\n", category_popularity)
+print('\n')
 
 
 
