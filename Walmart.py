@@ -98,7 +98,7 @@ print(walmart.info())
 print('\n')
 
 # 4
-# Check column content and change data type
+# Check column content and change data type of the Gender, Category, Product_Name, Payment_Method, Repeat_Customer columns
 print(walmart['Gender'].value_counts())
 walmart['Gender'] = walmart['Gender'].astype('category')
 
@@ -108,7 +108,26 @@ walmart['Category'] = walmart['Category'].astype('category')
 print(walmart['Product_Name'].value_counts())
 walmart['Product_Name'] = walmart['Product_Name'].astype('category')
 
+print(walmart['Payment_Method'].value_counts())
+walmart['Payment_Method'] = walmart['Payment_Method'].astype('category')
+
+print(walmart['Repeat_Customer'].value_counts())
+walmart['Repeat_Customer'] = walmart['Repeat_Customer'].astype('category')
+print('\n')
+
+# Check column types after changes
 print(walmart.info())
-# Gender, Category, Product_Name, Payment_Method can be changed to a 'category' type
+
+
+
+print('\n')
+print(walmart.head())
+print('\n')
+
+
+
+
+
+
 
 
