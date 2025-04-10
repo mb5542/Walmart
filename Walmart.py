@@ -171,5 +171,22 @@ category_popularity = walmart['Category'].value_counts().sort_values(ascending=F
 print("Most popular categories:\n", category_popularity)
 print('\n')
 
+'''
+Customer segmentation:
+1. Sales by gender, age group, city?
+2. Percentage of returning customers
+3. Average order value in different customer groups
+'''
+
+# 1
+# a) Sales by gender
+sales_by_gender = walmart.groupby('Gender', observed=True)['Purchase_Amount'].sum().sort_values(ascending=False)
+print(sales_by_gender)
+
+sales_by_gender.plot(kind='pie', title='Sales by gender', autopct="%.0f%%")
+
+# Group Age
+# print(walmart['Age'].min())
+# print(walmart['Age'].max())
 
 
