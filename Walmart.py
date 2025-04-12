@@ -8,7 +8,7 @@ Created on Sat Mar 22 15:53:35 2025
 #Import libraries
 import pandas as pd
 import numpy as np
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 # Import dataset
 walmart = pd.read_csv(r'd:\programy\python312\scripts\Walmart\Walmart_customer_purchases.csv')
@@ -173,20 +173,80 @@ print('\n')
 
 '''
 Customer segmentation:
-1. Sales by gender, age group, city?
-2. Percentage of returning customers
-3. Average order value in different customer groups
+1. Sales by gender
+2. Sales by age
+3. Sales by city
+4. Percentage of returning customers
 '''
 
 # 1
-# a) Sales by gender
+# Sales by gender
 sales_by_gender = walmart.groupby('Gender', observed=True)['Purchase_Amount'].sum().sort_values(ascending=False)
 print(sales_by_gender)
+print('\n')
 
+plt.figure()
 sales_by_gender.plot(kind='pie', title='Sales by gender', autopct="%.0f%%")
+plt.show()
 
-# Group Age
-# print(walmart['Age'].min())
-# print(walmart['Age'].max())
+# 2
+# Sales by age
 
+# Age grouping
+print('Min age: ', walmart['Age'].min())
+print('Max age: ', walmart['Age'].max())
+print('\n')
 
+bins = [17,25,35,45,55,65]
+labels = ['18-25','26-35','36-45','46-55','56-65']
+walmart['Age_Group'] = pd.cut(walmart['Age'],bins=bins, labels=labels)
+
+print(walmart['Age_Group'].value_counts())
+print('\n')
+
+sales_by_age = walmart.groupby('Age_Group', observed=True)['Purchase_Amount'].sum().sort_values(ascending=False)
+print(sales_by_age)
+print('\n')
+
+plt.figure()
+sales_by_age.plot(kind='bar', title='Sales by age')
+plt.show()
+#Age groups
+walmart['Age_Group'].value_counts().plot(kind='bar', title='Size of age groups', color='y')
+
+# 3 
+# Sales by city
+print(walmart['City'].nunique())
+
+sales_by_city = walmart.groupby('City', observed=True)['Purchase_Amount'].sum()
+
+#The three cities with the highest and the lowest sales
+top_3_cities = sales_by_city.sort_values(ascending=False).head(3)
+bottom_3_cities = sales_by_city.sort_values(ascending=False).tail(3)
+print(top_3_cities)
+print('\n')
+print(bottom_3_cities)
+print('\n')
+
+# Comparison between cities
+plt.figure()
+top_3_cities.plot(kind='bar', title='Cities with the highest sales', color='g')
+plt.show()
+
+plt.figure()
+bottom_3_cities.plot(kind='bar', title='Cities with the lowest sales', color='r')
+plt.show()
+
+# 4. 
+# Percentage of returning customers
+repeat_customer = (walmart['Repeat_Customer']=='Yes').sum()
+repeat_rate = repeat_customer/len(walmart['Repeat_Customer'])
+
+print(f'Odsetek powracających klientów: {repeat_rate:.3f}%')
+
+'''
+Shopping basket analysis:
+1. Most frequently purchased products
+2. Associations between products?
+3. Average purchase amount by product category
+'''
