@@ -9,6 +9,7 @@ Created on Sat Mar 22 15:53:35 2025
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Import dataset
 walmart = pd.read_csv(r'd:\programy\python312\scripts\Walmart\Walmart_customer_purchases.csv')
@@ -231,10 +232,12 @@ print('\n')
 # Comparison between cities
 plt.figure()
 top_3_cities.plot(kind='bar', title='Cities with the highest sales', color='g')
+plt.ylim(3100, 12000) 
 plt.show()
 
 plt.figure()
 bottom_3_cities.plot(kind='bar', title='Cities with the lowest sales', color='r')
+plt.ylim(0, 12)
 plt.show()
 
 # 4. 
@@ -242,11 +245,54 @@ plt.show()
 repeat_customer = (walmart['Repeat_Customer']=='Yes').sum()
 repeat_rate = repeat_customer/len(walmart['Repeat_Customer'])
 
-print(f'Odsetek powracających klientów: {repeat_rate:.3f}%')
+print(f'Percentage of returning customers: {repeat_rate:.3f}%')
 
 '''
 Shopping basket analysis:
 1. Most frequently purchased products
-2. Associations between products?
-3. Average purchase amount by product category
+2. Top products by gender
+3. Categories by gender
+4. Average purchase amount by product category
 '''
+
+# 1
+# Most frequently purchased products
+top_5_products = walmart["Product_Name"].value_counts().head()
+plt.figure()
+top_5_products.plot(kind='bar', color='cornflowerblue', title='Best selling products')
+plt.ylim(3100, 3300)
+plt.show()
+
+# 2
+# Top products by gender
+products_by_gender = walmart.groupby("Gender", observed=True)["Product_Name"].value_counts(normalize=True)
+df_products = products_by_gender.reset_index(name='Share')
+top3_by_gender = (df_products.groupby('Gender',observed=True).apply(lambda x: x.nlargest(3,'Share')).reset_index(drop=True))
+print(f'Top 3 products by gender: \n{top3_by_gender}')
+print('\n')
+
+# 3
+# Categories by gender:
+categories_by_gender = walmart.groupby(["Gender","Category"],observed=True).size().unstack()
+plt.figure()
+sns.heatmap(categories_by_gender)
+plt.title('Categories by gender')
+plt.show()
+
+# 4
+# Average purchase amount by product category
+avg_purchase_by_category = walmart.groupby("Category", observed=True)['Purchase_Amount'].mean().sort_values(ascending=False)
+
+plt.figure()
+avg_purchase_by_category.plot(kind='bar', color='teal')
+plt.ylim(245, 260)
+plt.show()
+
+
+'''
+Payments:
+1. Share of payment methods
+2. Impact of Payment Method on Spend
+3. Impact of discounts on average rating
+'''
+
