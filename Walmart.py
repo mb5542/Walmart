@@ -187,7 +187,7 @@ print(sales_by_gender)
 print('\n')
 
 plt.figure()
-sales_by_gender.plot(kind='pie', title='Sales by gender', autopct="%.0f%%")
+sales_by_gender.plot(kind='pie', title='Sales by gender', autopct="%.1f%%")
 plt.show()
 
 # 2
@@ -284,7 +284,7 @@ plt.show()
 avg_purchase_by_category = walmart.groupby("Category", observed=True)['Purchase_Amount'].mean().sort_values(ascending=False)
 
 plt.figure()
-avg_purchase_by_category.plot(kind='bar', color='teal')
+avg_purchase_by_category.plot(kind='bar', color='teal', title='Average purchase amount by product category')
 plt.ylim(245, 260)
 plt.show()
 
@@ -296,3 +296,72 @@ Payments:
 3. Impact of discounts on average rating
 '''
 
+# 1
+# Share of payment methods
+payment_share = walmart['Payment_Method'].value_counts(normalize=True)
+
+plt.figure()
+payment_share.plot(kind='pie', autopct='%.1f%%', title='Share of payment methods')
+plt.show()
+
+# 2
+# Impact of Payment Method on Spend
+
+avg_spend_by_payment = walmart.groupby('Payment_Method', observed=True)['Purchase_Amount'].mean().sort_values(ascending=True)
+
+plt.figure()
+avg_spend_by_payment.plot(kind='bar', title='Average spend by payment', color='skyblue')
+plt.ylim(250, 258)
+plt.show()
+
+
+
+# Anova test
+from scipy.stats import f_oneway
+
+groups_payment = [group['Purchase_Amount'].values for name, group in walmart.groupby('Payment_Method')]
+
+anova_payment_result = f_oneway(*groups_payment)
+
+print('F statistics:', anova_payment_result.statistic)
+print("P-value:", anova_payment_result.pvalue)
+
+if anova_payment_result.pvalue < 0.05:
+    print('We reject the null hypothesis - the differences are statistically significant.')
+else:
+    print('No grounds to reject the null hypothesis - differences are not significant.')
+    
+    
+# 3 
+# Impact of discounts on average rating
+
+avg_rating_by_discounts = walmart.groupby('Discount_Applied', observed=True)['Rating'].mean()
+print(f'Average rating by discounts:\n {avg_rating_by_discounts.round(3)}')
+
+# t-student test
+from scipy import stats
+
+group_yes = walmart[walmart['Discount_Applied'] == 'Yes']['Rating']
+group_no = walmart[walmart['Discount_Applied'] == 'No']['Rating']
+
+t_stat, p_value = stats.ttest_ind(group_yes,group_no)
+
+print(f'T-statistic: {t_stat}')
+print(f'P-value: {p_value}')
+
+if p_value < 0.05:
+    print('We reject the null hypothesis - the differences are statistically significant.')
+else:
+    print('No grounds to reject the null hypothesis - differences are not significant.')
+  
+'''
+Seasonality and trend analysis:
+1. Sales by time (daily/monthly)
+2. Best/worst-performing days of the week
+3. Average order value by date
+'''
+
+
+
+    
+    
