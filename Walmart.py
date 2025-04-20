@@ -319,18 +319,18 @@ plt.show()
 # Anova test
 from scipy.stats import f_oneway
 
-groups_payment = [group['Purchase_Amount'].values for name, group in walmart.groupby('Payment_Method')]
+groups_payment = [group['Purchase_Amount'].values for name, group in walmart.groupby('Payment_Method', observed=True)]
 
 anova_payment_result = f_oneway(*groups_payment)
-
+print('\nAnova test for payment methods')
 print('F statistics:', anova_payment_result.statistic)
 print("P-value:", anova_payment_result.pvalue)
-
+print('\n')
 if anova_payment_result.pvalue < 0.05:
     print('We reject the null hypothesis - the differences are statistically significant.')
 else:
     print('No grounds to reject the null hypothesis - differences are not significant.')
-    
+print('\n')    
     
 # 3 
 # Impact of discounts on average rating
@@ -345,14 +345,17 @@ group_yes = walmart[walmart['Discount_Applied'] == 'Yes']['Rating']
 group_no = walmart[walmart['Discount_Applied'] == 'No']['Rating']
 
 t_stat, p_value = stats.ttest_ind(group_yes,group_no)
-
+print("\nStudent's t-test for discounts")
 print(f'T-statistic: {t_stat}')
 print(f'P-value: {p_value}')
+print('\n')
 
 if p_value < 0.05:
     print('We reject the null hypothesis - the differences are statistically significant.')
 else:
     print('No grounds to reject the null hypothesis - differences are not significant.')
+print('\n')  
+    
   
 '''
 Seasonality and trend analysis:
@@ -361,7 +364,31 @@ Seasonality and trend analysis:
 3. Average order value by date
 '''
 
+# 1
+# Sales by time (daily/monthly)
+daily_sales = walmart.groupby('Purchase_Date', observed=True)['Purchase_Amount'].sum()
 
+plt.figure()
+daily_sales.plot(title='Daily sales') 
+plt.show()
 
-    
-    
+# Mothly sales
+
+walmart['Month'] = walmart['Purchase_Date'].dt.to_period('M')
+monthly_sales = walmart.groupby('Month', observed=True)['Purchase_Amount'].sum()
+
+plt.figure()
+monthly_sales.plot(title='Mothly sales') 
+plt.show()
+
+print(walmart['Purchase_Date'].min())
+print(walmart['Purchase_Date'].max())
+# Skip February - no data for whole months
+month_filter = walmart[~walmart['Month'].isin([pd.Period("2024-02"),pd.Period('2025-02')])]
+
+monthly_sales_filtered = month_filter.groupby('Month', observed=True)['Purchase_Amount'].sum()
+
+plt.figure()
+monthly_sales_filtered.plot(title='Mothly sales') 
+plt.show()
+
