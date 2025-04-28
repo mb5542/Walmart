@@ -378,11 +378,13 @@ walmart['Month'] = walmart['Purchase_Date'].dt.to_period('M')
 monthly_sales = walmart.groupby('Month', observed=True)['Purchase_Amount'].sum()
 
 plt.figure()
-monthly_sales.plot(title='Mothly sales') 
+monthly_sales.plot(title='Total monthly sales') 
 plt.show()
 
 print(walmart['Purchase_Date'].min())
 print(walmart['Purchase_Date'].max())
+print('\n') 
+
 # Skip February - no data for whole months
 month_filter = walmart[~walmart['Month'].isin([pd.Period("2024-02"),pd.Period('2025-02')])]
 
@@ -391,4 +393,28 @@ monthly_sales_filtered = month_filter.groupby('Month', observed=True)['Purchase_
 plt.figure()
 monthly_sales_filtered.plot(title='Mothly sales') 
 plt.show()
+
+
+# 2
+# Best performing day of the week
+walmart['Day_of_Week'] = walmart['Purchase_Date'].dt.strftime('%A')
+
+sales_by_day = walmart.groupby('Day_of_Week', observed=True)['Purchase_Amount'].sum()
+
+order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+sales_by_day = sales_by_day.reindex(order)
+
+plt.figure()
+sales_by_day.plot(kind='bar', color='seagreen')
+plt.title='Sales by Day of the Week'
+plt.ylim(1750000, 1861000)
+plt.show()
+
+best_day = sales_by_day.idxmax()
+worst_day = sales_by_day.idxmin()
+
+print(f"Best-performing day: {best_day}")
+print(f"Worst-performing day: {worst_day}")
+
+
 
