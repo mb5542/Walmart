@@ -391,7 +391,7 @@ month_filter = walmart[~walmart['Month'].isin([pd.Period("2024-02"),pd.Period('2
 monthly_sales_filtered = month_filter.groupby('Month', observed=True)['Purchase_Amount'].sum()
 
 plt.figure()
-monthly_sales_filtered.plot(title='Mothly sales') 
+monthly_sales_filtered.plot(title='Monthly sales - full months') 
 plt.show()
 
 
@@ -417,4 +417,15 @@ print(f"Best-performing day: {best_day}")
 print(f"Worst-performing day: {worst_day}")
 
 
+# 3
+# Average order value by date
+avg_by_date = walmart.groupby('Purchase_Date', observed=True)['Purchase_Amount'].mean()
 
+plt.figure()
+avg_by_date.plot(color='teal', title='Average order value by date')
+plt.show()
+
+plt.figure()
+ma_avg_by_date = avg_by_date.rolling(window=7).mean()
+ma_avg_by_date.plot(color='blue', title= '7-day moving average')
+plt.show()
