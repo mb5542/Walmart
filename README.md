@@ -19,8 +19,8 @@ Categorical columns (Gender, Category, Product_Name, Payment_Method, Repeat_Cust
 
 - Final check: Verified column types and confirmed dataset integrity using .info()
 
-\n
-
+---
+  
 __Data Analysis__
 **Sales KPI Analysis – Insights**
 
@@ -39,27 +39,29 @@ __Data Analysis__
 
 4. Most popular products and categories:
  Top 3 most popular products:
-Headphones    3261
-T-Shirt       3205
+Headphones    3261;
+T-Shirt       3205;
 Smartwatch    3177
 -Their popularity may reflect current trends, effective promotions, or competitive pricing.
 
 Most popular categories:
  Category
-Electronics    12642
-Home           12492
-Beauty         12447
+Electronics    12642;
+Home           12492;
+Beauty         12447;
 Clothing       12417
 -The distribution is very balanced, which suggests a diverse product offering and evenly spread customer interest.
-\n
+
 **Recommendations:**
 Consider introducing initiatives to increase customer loyalty (e.g., loyalty programs, newsletters, remarketing campaigns).
 Strengthen marketing efforts around the most popular products and categories.
 
+---
 
-\n
 **Customer Segmentation – Insights**
 
 1. Sales by Gender
-![image](https://github.com/user-attachments/assets/d8bd2c39-74ef-4f43-b6c3-8e2e564b628c)
+<img src="https://github.com/user-attachments/assets/335a8469-3f6c-406a-9161-37dc73e429a7" width="40%">
+
+-Sales are fairly evenly distributed between genders, with slightly higher spending from customers identifying themselves as ‘Other’. This may suggest a diverse customer base and should be accounted in marketing strategies.
 
