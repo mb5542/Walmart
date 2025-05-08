@@ -19,7 +19,7 @@ Categorical columns (Gender, Category, Product_Name, Payment_Method, Repeat_Cust
 
 - Final check: Verified column types and confirmed dataset integrity using .info()
 
-
+\n
 
 __Data Analysis__
 **Sales KPI Analysis – Insights**
@@ -51,13 +51,13 @@ Home           12492
 Beauty         12447
 Clothing       12417
 -The distribution is very balanced, which suggests a diverse product offering and evenly spread customer interest.
-
+\n
 **Recommendations:**
 Consider introducing initiatives to increase customer loyalty (e.g., loyalty programs, newsletters, remarketing campaigns).
 Strengthen marketing efforts around the most popular products and categories.
 
 
-
+\n
 **Customer Segmentation – Insights**
 
 1. Sales by Gender
