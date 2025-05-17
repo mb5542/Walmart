@@ -148,5 +148,76 @@ Continue strengthening customer loyalty mechanisms:
 - loyalty apps
 - coupons
 - targeted emails or mobile push notifications
-     
-      
+
+<br>
+
+---
+
+**Shopping basket analysis:**
+
+1. _Most frequently purchased products_
+
+<img src="https://github.com/user-attachments/assets/46cd094d-8f9e-40ed-80c3-1bde64a3a069" width="40%">
+
+**Interpretation:**
+- The top products span multiple categories, including electronics, clothing, personal care, and home goods — reflecting the diverse shopping behavior of Walmart customers.
+- Products like headphones and smartwatches suggest strong demand in affordable tech.
+- Face cream points to consistent interest in beauty/personal care — likely repeat-purchased items.
+- T-shirts and sofa covers indicate a blend of everyday apparel and home essentials, both of which align with Walmart’s core retail offering.
+
+**Recommendations:**
+- Ensure optimal inventory levels for these products to avoid out-of-stock scenarios.
+- Consider bundling strategies — e.g., pair headphones with chargers
+
+<br>
+
+2. _Top products by gender:_
+
+| Gender | Product    | Share (%) |
+| ------ | ---------- | --------- |
+| Female | T-Shirt    | 6.59%     |
+| Female | Jacket     | 6.56%     |
+| Female | Headphones | 6.52%     |
+| Male   | Headphones | 6.65%     |
+| Male   | Laptop     | 6.52%     |
+| Male   | Face Cream | 6.49%     |
+| Other  | Smartwatch | 6.72%     |
+| Other  | Curtains   | 6.47%     |
+| Other  | Smartphone | 6.44%     |
+
+**Interpretation:**
+- Female customers prefer a mix of clothing (T-shirts, jackets) and electronics (headphones).
+- Male customers favor technology products (headphones, laptops) but also show interest in personal care (face cream).
+- Customers categorized as Other gravitate toward tech and home products (smartwatches, curtains, smartphones)
+In summary, clothing dominates among women, while tech items such as laptops and smartphones are more popular among men and others.
+
+**Recommendations:**
+- Promote clothing deals to female customers.
+- Emphasize tech bundles or upgrades for male and Other genders.
+
+<br>
+
+3. _Categories by gender:_
+   
+<img src="https://github.com/user-attachments/assets/31ba593f-dde1-441e-8699-e4b9e1a4577a" width="40%">
+
+**Interpretation:**
+
+- Male shoppers show a clear preference for Electronics, and relatively lower interest in Clothing.
+- Female shoppers demonstrate a more balanced distribution across all categories, though Electronics is still the lowest for them.
+- Other gender group leads in both Electronics and Clothing, suggesting this segment engages broadly in both tech and apparel.
+
+**Recommendations:**
+
+Consider gender-based category promotions:
+- Electronics for Male and Other.
+- Clothing and Home for Female and Other.
+
+<br>
+
+4. _Average purchase amount by product category:_
+
+<img src="https://github.com/user-attachments/assets/d9e5795d-ec0f-49cc-acb5-530641fa2035" width="40%">
+
+
+**Interpretation:**
