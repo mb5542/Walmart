@@ -221,3 +221,79 @@ Consider gender-based category promotions:
 
 
 **Interpretation:**
+- The top position for electronics is expected due to typically more expensive
+- The small gap between categories may suggest that Walmart maintains competitive pricing even in categories often considered luxury or non-essential
+- Clothing, which has the lowest average, consist of cheaper, frequent purchases such as T-shirts and basic clothing.
+
+**Recommendations**
+- Upsell or bundle offers can be introduced in Clothing to raise the average purchase amount.
+- Highlight premium items in the Home and Beauty sections to potentially match Electronics’ revenue contribution.
+
+<br>
+
+---
+
+**Payments:**
+
+_1. Share of payment methods:_
+
+<img src="https://github.com/user-attachments/assets/e04758f2-c103-48bd-b09b-a32d3495ecd7" width="40%">
+
+**Interpretation:**
+- This almost equal split indicates that Walmart has successfully integrated multiple payment options, offering flexibility
+- The small differences in usage suggest that consumer preferences are diverse and no single method dominates
+
+**Recommendations**
+- Maintain support for all current payment methods, as each supports a significant proportion of the customer base.
+- Promote digital methods (e.g. UPI, cards) through incentives (e.g. cashback, loyalty points) to gradually move away from cash - reducing handling costs and fraud risk.
+
+<br>
+
+_2. Impact of Payment Method on Spend_
+
+<img src="https://github.com/user-attachments/assets/83b90822-8c1c-4cbb-ba5d-146edaa6f9c6" width="40%">
+
+Anova test for payment methods:
+
+F statistics: 0.1980970383845948
+
+P-value: 0.8977374886444247
+
+**Interpretation:**
+- At first glance, the average spend appears slightly higher for UPI and Cash on Delivery, but the differences are marginal — within about $1.30 across all methods.
+- The P-value (0.898) is far above the common significance level (0.05), meaning there's no statistically significant difference in purchase amounts across payment methods.
+- In other words, how customers pay does not influence how much they spend.
+
+**Recommendations**
+- Maintain support for all payment types, as they perform similarly in terms of customer spend.
+- Focus on user experience and transaction success rate, rather than trying to steer users toward "higher spending" methods, since no real impact exists.
+
+<br>
+
+_3. Impact of discounts on average rating:_
+
+| Discount Applied | Average Rating |
+| ---------------- | -------------- |
+| No           | 3.000     |
+| Yes          | 2.997          |
+
+Student's t-test for discounts:
+
+T-statistic: -0.20199103434680427
+
+P-value: 0.8399245551082193
+
+**Interpretation:**
+- The difference in average ratings is minimal (0.003 points), suggesting that discounts do not meaningfully affect how customers rate their purchases.
+- The P-value is much higher than the typical threshold of 0.05.
+- This means we fail to reject the null hypothesis: there is no significant difference in average ratings between discounted and non-discounted purchases.
+
+**Recommendations**
+- Discounts can be used to drive sales or clear inventory without concern that they will lower customer satisfaction.
+- Marketing strategies can focus on the transactional or volume benefits of discounts rather than trying to improve ratings through them.
+
+<br>
+
+---
+
+**Seasonality and trend analysis:**
