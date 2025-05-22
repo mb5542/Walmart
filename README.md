@@ -297,3 +297,34 @@ P-value: 0.8399245551082193
 ---
 
 **Seasonality and trend analysis:**
+
+_1. Sales by time (daily/monthly)_
+
+<img src="https://github.com/user-attachments/assets/07930891-402f-434a-919a-ce7f05475b86" width="40%">
+
+**Interpretation:**
+- The daily sales chart shows significant day-to-day fluctuations, with purchase amounts typically ranging between 27,000 and 43,000. 
+- No clear seasonality is observed. 
+- The peaks and dips appear to be random
+
+<img src="https://github.com/user-attachments/assets/aabf0ff1-b8ae-4ee9-935d-8c912dce25ab" width="40%">
+
+**Interpretation:**
+- There is a steep increase in sales from February to March 2024 due to incomplete data for February. 
+- From March 2024 to January 2025, total monthly sales are very consistent, ranging around 1.05 to 1.10 million. 
+- February 2025 again shows a drop due to partial month data.
+
+To better see the differences between the months, February 2024 and 2025 have been omitted
+
+<img src="https://github.com/user-attachments/assets/fdfbe472-822d-4a9e-a999-d1f4043f0e64" width="40%">
+
+**Interpretation:**
+- After filtering out incomplete months, the sales across March 2024 to January 2025 are relatively steady, with small natural fluctuations. 
+- No single month stands out as significantly better or worse, indicating a well-balanced sales performance throughout the year.
+
+<br>
+
+_2. Best performing day of the week_
+
+<img src="https://github.com/user-attachments/assets/11eb7ecb-70e3-4ca8-b150-7eadda67c061" width="40%">
+
