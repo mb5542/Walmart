@@ -3,7 +3,7 @@ Analysis of walmart shop sales data
 
 
 
-**Data Cleaning & Preparation:**
+## Data Cleaning & Preparation:
 
 The dataset was preprocessed to ensure data quality and correct data types before analysis:
 -  Loading: Imported from a semicolon-separated CSV file with Customer_ID as the index.
@@ -22,54 +22,71 @@ Categorical columns (Gender, Category, Product_Name, Payment_Method, Repeat_Cust
 
 ---
   
-__Data Analysis:__
+## Data Analysis
 
 **Sales KPI Analysis – Insights**
 
-1. Total sales:
+### 1. Total sales
    USD 12,776,121.12 over the entire analysis period (1 year).
 - This indicates a high sales volume 
 
-   
-2. Average shopping basket:
+<br>
+
+### 2. Average shopping basket
    The average order value is USD 255.53
 - It's suggesting that customers are purchasing relatively high-value items.
 
-3. Average number of transactions per customer:
+<br>
+
+### 3. Average number of transactions per customer
    On average, 1.00 transaction per customer.
 - This suggests that most customers make a one-time purchase, potentially indicating opportunity to improve retention and remarketing efforts
 
-4. Most popular products and categories:
- Top 3 most popular products:
-Headphones    3261;
-T-Shirt       3205;
-Smartwatch    3177
+<br>
+
+### 4. Most popular products and categories
+
+Top 3 most popular products:
+
+| Product    | Quantity Sold |
+| ---------- | ------------- |
+| Headphones | 3,261         |
+| T-Shirt    | 3,205         |
+| Smartwatch | 3,177         |
+
 -Their popularity may reflect current trends, effective promotions, or competitive pricing.
 
+<br>
+
 Most popular categories:
- Category
-Electronics    12642;
-Home           12492;
-Beauty         12447;
-Clothing       12417
+
+| Category    | Quantity Sold |
+| ----------- | ------------- |
+| Electronics | 12,642        |
+| Home        | 12,492        |
+| Beauty      | 12,447        |
+| Clothing    | 12,417        |
+
 -The distribution is very balanced, which suggests a diverse product offering and evenly spread customer interest.
 
 **Recommendations:**
 Consider introducing initiatives to increase customer loyalty (e.g., loyalty programs, newsletters, remarketing campaigns).
 Strengthen marketing efforts around the most popular products and categories.
 
+<br>
+
 ---
 
-**Customer Segmentation – Insights**
+## Customer Segmentation – Insights
 
-1. _Sales by Gender:_
+### 1. Sales by Gender
 <img src="https://github.com/user-attachments/assets/335a8469-3f6c-406a-9161-37dc73e429a7" width="40%">
 
 -Sales are fairly evenly distributed between genders, with slightly higher spending from customers identifying themselves as ‘Other’. This may suggest a diverse customer base and should be accounted in marketing strategies.
 
 <br>
 
-2. _Sales by age:_
+### 2. Sales by age
    
 **Minimum age:** 18
 
@@ -99,7 +116,7 @@ Strengthen marketing efforts around the most popular products and categories.
 
 <br>
 
-3. _Sales by city:_
+### 3. Sales by city
    
 **Total number of cities:** 25 095
 
@@ -114,8 +131,11 @@ Cities with the highest sales:
 
 <img src="https://github.com/user-attachments/assets/dd620d3f-812b-4f5e-9e27-985e49fe6bfe" width="40%">
 
+<br>
+<br>
 
 Cities with the lowest sales:
+
 | Age Group | Total Sales (USD) |
 | --------- | ----------------- |
 | Devintown      | 10.08      |
@@ -133,7 +153,7 @@ Very low sales (~10 USD) suggest minimal purchase activity, possibly due to:
 
 <br>
 
-4. _Percentage of returning customers:_
+### 4. Percentage of returning customers
          
 **Percentage of returning customers:** 50.49%
 
@@ -153,9 +173,9 @@ Continue strengthening customer loyalty mechanisms:
 
 ---
 
-**Shopping basket analysis:**
+## Shopping basket analysis
 
-1. _Most frequently purchased products_
+### 1. Most frequently purchased products
 
 <img src="https://github.com/user-attachments/assets/46cd094d-8f9e-40ed-80c3-1bde64a3a069" width="40%">
 
@@ -171,7 +191,7 @@ Continue strengthening customer loyalty mechanisms:
 
 <br>
 
-2. _Top products by gender:_
+### 2. Top products by gender
 
 | Gender | Product    | Share (%) |
 | ------ | ---------- | --------- |
@@ -197,7 +217,7 @@ In summary, clothing dominates among women, while tech items such as laptops and
 
 <br>
 
-3. _Categories by gender:_
+### 3. Categories by gender
    
 <img src="https://github.com/user-attachments/assets/31ba593f-dde1-441e-8699-e4b9e1a4577a" width="40%">
 
@@ -215,7 +235,7 @@ Consider gender-based category promotions:
 
 <br>
 
-4. _Average purchase amount by product category:_
+### 4. Average purchase amount by product category
 
 <img src="https://github.com/user-attachments/assets/d9e5795d-ec0f-49cc-acb5-530641fa2035" width="40%">
 
@@ -233,9 +253,9 @@ Consider gender-based category promotions:
 
 ---
 
-**Payments:**
+## Payments:
 
-_1. Share of payment methods:_
+### 1. Share of payment methods:
 
 <img src="https://github.com/user-attachments/assets/e04758f2-c103-48bd-b09b-a32d3495ecd7" width="40%">
 
@@ -249,7 +269,7 @@ _1. Share of payment methods:_
 
 <br>
 
-_2. Impact of Payment Method on Spend_
+### 2. Impact of Payment Method on Spend
 
 <img src="https://github.com/user-attachments/assets/83b90822-8c1c-4cbb-ba5d-146edaa6f9c6" width="40%">
 
@@ -270,7 +290,7 @@ P-value: 0.8977374886444247
 
 <br>
 
-_3. Impact of discounts on average rating:_
+### 3. Impact of discounts on average rating
 
 | Discount Applied | Average Rating |
 | ---------------- | -------------- |
@@ -296,9 +316,9 @@ P-value: 0.8399245551082193
 
 ---
 
-**Seasonality and trend analysis:**
+## Seasonality and trend analysis
 
-_1. Sales by time (daily/monthly)_
+### 1. Sales by time (daily/monthly)
 
 <img src="https://github.com/user-attachments/assets/07930891-402f-434a-919a-ce7f05475b86" width="40%">
 
@@ -324,7 +344,36 @@ To better see the differences between the months, February 2024 and 2025 have be
 
 <br>
 
-_2. Best performing day of the week_
+### 2. Best performing day of the week
 
-<img src="https://github.com/user-attachments/assets/11eb7ecb-70e3-4ca8-b150-7eadda67c061" width="40%">
+<img src="https://github.com/user-attachments/assets/78e1ce77-88ed-46f8-838d-2adfd297b52b" width="40%">
 
+**Interpretation:**
+- The highest sales are observed on Saturday, followed closely by Monday and Sunday. 
+- The lowest sales are recorded on Thursday. 
+- This suggests a clear pattern where weekends and the start of the week (Monday) see increased purchasing activity.
+
+**Recommendations**
+- Prioritize promotions and campaigns on weekends, especially Saturdays
+- Explore operational adjustments (e.g., staffing, inventory management) based on these trends to optimize cost-efficiency throughout the week.
+
+<br>
+
+### 3. Average order value by date
+
+<img src="https://github.com/user-attachments/assets/450c0680-e960-4f18-968f-d708e04822a9" width="40%">
+
+**Interpretation:**
+- The data fluctuates frequently, indicating significant short-term variability. 
+- Values generally range between 240 and 270, with several noticeable spikes and drops.
+- Despite the volatility, no strong seasonal trend is evident
+
+
+<img src="https://github.com/user-attachments/assets/a2a6971a-f4ea-4e0b-ac50-3e99167d1095" width="40%">
+
+**Interpretation:**
+- This visualization of the moving average reveals more stable mid-term trends. 
+- Notable peaks occur in April, June/July, and November/December, while noticeable declines appear in early January and February. 
+
+**Recommendations**
+- Increase marketing efforts or upselling opportunities during months with consistently higher average values (e.g., June or December).
